@@ -1,0 +1,26 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        
+        int sortedSquares[] = new int[nums.length];
+        
+        for(int i = 0; i < nums.length; i++){
+            
+            int square = 0;
+            square = nums[i]*nums[i];
+            sortedSquares[i] = square;
+        }
+        
+        for(int j = 0; j < sortedSquares.length - 1; j++){
+            for(int k = 0; k < sortedSquares.length - j - 1; k++){
+                
+                if(sortedSquares[k] > sortedSquares[k+1]){
+                    int temp = sortedSquares[k];
+                    sortedSquares[k] = sortedSquares[k+1];
+                    sortedSquares[k+1] = temp;
+                }
+            }
+        }
+        
+        return sortedSquares;
+    }
+}
